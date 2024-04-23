@@ -1,0 +1,11 @@
+{
+  "name": "projet-3",
+  "version": "1.0.0",
+  "description": "Une application qui permettre aux utilisateurs de suivre leurs dépenses et leurs revenus",
+  "main": "n",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oumar Kane",
+  "license": "ISC"
+}

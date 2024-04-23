@@ -1,0 +1,212 @@
+
+:root{
+    --container_width: 1300px;
+
+    --primaryColor:#0c5e69;
+    --secondaryColor : #d7c925;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+}
+
+
+.budget_cards{
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.budget_cards_container{
+    max-width: var(--container_width);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.card{
+    max-width: 350px;
+    width: 100%;
+    box-shadow: 0 0 5px #00000042; 
+    flex: 1;
+}
+
+.card_title{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 50px;
+    background: var(--primaryColor);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.card_title p{
+    font-size: 20px;
+}
+
+.card_montant{
+    min-height: 50px;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center;
+    padding: 20px;
+}
+
+
+
+ /* ----------- TABLEAU --------- */
+
+.tableau{
+    max-width: var(--container_width);
+    width: 100%;
+    margin-top: 100px;
+}
+
+.tableau h1{
+    color: var(--secondaryColor);
+    font-size: 30px;
+    font-weight: lighter;
+    margin-bottom: 20px;
+}
+
+table{
+    width: 100%;
+}
+
+tr{
+    width: 100%;
+    display: flex;
+}
+td{
+    flex: 1;
+}
+thead tr td,
+tbody tr td{
+    padding: 20px;
+    color: #242424;
+    box-shadow: 0 0 1px #717171;
+    display: flex;
+    align-items: center;
+}
+
+thead tr td{
+    background: var(--primaryColor);
+    color: white;
+    font-size: 20px;
+    border: none;
+    box-shadow: 0 0 3px #f2f2f2;
+
+}
+
+tbody tr td button{
+    padding: 10px 15px;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background: #ff5b5b;
+    color: #f6f6f6;
+    cursor: pointer;
+    transition: .3s;
+}
+
+
+tbody tr td button:hover{
+    background: #e64f4f;
+}
+.ajoutRv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ajoutRv p{
+    color: var(--secondaryColor);
+    font-size: 15px;
+}
+
+.ajoutRv img{
+    width: 30px;
+    cursor: pointer;
+}
+
+
+
+
+/* ------FORMULAIRE--------- */
+
+.formBox{
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.formBox h2{
+    margin-bottom: 100px;
+    font-size: 20px;
+    color: #0c5e69;
+    font-weight: lighter;
+}
+.formBox form{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    min-width: 500px;
+}
+
+.inputBox label{
+    font-size: 18px;
+    color: var(--primaryColor);
+    margin-bottom: 15px;
+    display: block;
+}
+.inputBox input,
+.formBox button{
+    width: 100%;
+    padding: 20px;
+    font-size: 18px;
+    border: none;
+    border: solid 1px #c7c7c7;
+    border-radius: 5px;
+    outline: none;
+}
+
+.inputBox input{
+    font-size: 15px;
+    color: #242424;
+}
+
+.inputBox input::placeholder{
+    color: #a9a9a9;
+}
+
+.formBox button{
+    border: none;
+    color: white;
+    font-size: 20px;
+    background: var(--primaryColor);
+    transition: .3s;
+}
+
+.formBox button:hover{
+    background: #0b5a64;
+}
+
+
