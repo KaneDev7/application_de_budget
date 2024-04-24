@@ -4,15 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="/js/storage.js" defer></script>
+    <script src="/js/budget.js" defer></script>
+    <script src="/js/dom.js" defer></script>
+    <script src="/js/app.js" defer></script>
     <title>Application de budgé</title>
 </head>
 
 <body>
     <header>
-        <a href="/"> <img src="/logo.png" alt="logo"> </a>
+        <a href="/"> <img src="/images/logo.png" alt="logo"> </a>
     </header>
 
+    <p class="home"></p>
     <section class="budget_cards">
         <div class="budget_cards_container">
             <div class="card">
@@ -20,25 +25,25 @@
                     <p>Budget</p>
                 </div>
                 <div class="card_montant">
-                    <p>140.000 F CFA</p>
+                    <p data-montant="budget">140.000 F CFA</p>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card_title">
-                    <p>Budget</p>
+                    <p>Dépense</p>
                 </div>
                 <div class="card_montant">
-                    <p>140.000 F CFA</p>
+                    <p data-montant="depense">140.000 F CFA</p>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card_title">
-                    <p>Budget</p>
+                    <p>Solde</p>
                 </div>
                 <div class="card_montant">
-                    <p>140.000 F CFA</p>
+                    <p data-montant="solde">140.000 F CFA</p>
                 </div>
             </div>
         </div>
@@ -56,36 +61,12 @@
                 </tr>
             </thead>
 
-            <tbody>
-                <tr>
-                    <td>nouriture</td>
-                    <td>40.000 F CFA</td>
-                    <td>
-                        <button>supprimer</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>nouriture</td>
-                    <td>40.000 F CFA</td>
-                    <td>
-                        <button>supprimer</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>nouriture</td>
-                    <td>40.000 F CFA</td>
-                    <td>
-                        <button>supprimer</button>
-                    </td>
-                </tr>
-
-                <tr>
+            <tbody id="depense">
+                <tr id="lastTrEl">
                     <td class="ajoutRv">
                         <p>AJOUTER DEPENSE</p>
-                        <a href="/ajout_depense.html">
-                            <img src="/icon-add.png" alt="icon to add">
+                        <a href="/pages/ajout_depense.html">
+                            <img src="/images/icon-add.png" alt="icon to add">
                         </a>
                     </td>
                     <td></td>
@@ -109,36 +90,13 @@
                 </tr>
             </thead>
 
-            <tbody>
-                <tr>
-                    <td>nouriture</td>
-                    <td>40.000 F CFA</td>
-                    <td>
-                        <button>supprimer</button>
-                    </td>
-                </tr>
+            <tbody id="income">
 
-                <tr>
-                    <td>nouriture</td>
-                    <td>40.000 F CFA</td>
-                    <td>
-                        <button>supprimer</button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>nouriture</td>
-                    <td>40.000 F CFA</td>
-                    <td>
-                        <button>supprimer</button>
-                    </td>
-                </tr>
-
-                <tr>
+                <tr id="lastTrEl">
                     <td class="ajoutRv">
                         <p>AJOUTER REVENU</p>
-                        <a href="/ajout_revenu.html">
-                            <img src="/icon-add.png" alt="icon to add">
+                        <a href="/pages/ajout_revenu.html">
+                            <img src="/images/icon-add.png" alt="icon to add">
                         </a>
                     </td>
                     <td></td>
@@ -148,7 +106,7 @@
             </tbody>
         </table>
     </section>
-    
+
 </body>
 
 </html>

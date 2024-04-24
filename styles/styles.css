@@ -18,6 +18,8 @@ body{
     align-items: center;
     flex-direction: column;
     padding: 40px;
+    animation: smouthTrans 1s;
+
 }
 
 
@@ -82,26 +84,34 @@ body{
     font-size: 30px;
     font-weight: lighter;
     margin-bottom: 20px;
+
 }
 
 table{
     width: 100%;
+    box-shadow: 0 0 1px #717171;
+    overflow: hidden;
+    border-radius: 13px;
 }
 
 tr{
     width: 100%;
     display: flex;
+
 }
 td{
     flex: 1;
 }
 thead tr td,
 tbody tr td{
-    padding: 20px;
-    color: #242424;
+    padding: 20px 30px;
+    color: #373737;
     box-shadow: 0 0 1px #717171;
     display: flex;
     align-items: center;
+    font-size: 14px;
+    text-transform: capitalize;
+
 }
 
 thead tr td{
@@ -203,6 +213,7 @@ tbody tr td button:hover{
     font-size: 20px;
     background: var(--primaryColor);
     transition: .3s;
+    
 }
 
 .formBox button:hover{
@@ -210,3 +221,12 @@ tbody tr td button:hover{
 }
 
 
+
+@keyframes smouthTrans {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
