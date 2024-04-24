@@ -28,6 +28,10 @@ class MyBudjet {
         this.#storage.setDataToLocalStorage('income', this.#incomes)
     }
 
+    iniitBudget(montant){
+        this.#storage.setDataToLocalStorage('budget', montant)
+    }
+
     deleteDepense(id){
         this.#depenses = this.#storage.getDataFromLocaleStorage('depense')
         this.#depenses = [...this.#depenses].filter(item => item.id !== id)
@@ -40,6 +44,36 @@ class MyBudjet {
         this.#incomes = [...this.#incomes].filter(item => item.id !== id)
         this.#storage.setDataToLocalStorage('income', this.#incomes)
         window.location.reload()
+    }
+
+    getTotalBudgetInfo(){
+ 
+        const budget = parseFloat(this.#storage.getDataFromLocaleStorage('budget'))
+
+        this.#depenses = this.#storage.getDataFromLocaleStorage('depense')
+        this.#incomes = this.#storage.getDataFromLocaleStorage('income')
+
+        const totalDepense = this.#depenses.reduce((acc, item) => {
+           return acc += parseFloat(item.montant)
+        },0)
+
+        const totalIncome =  this.#incomes.reduce((acc, item) => {
+            return acc += parseFloat(item.montant)
+         },0)
+
+
+         const solde = budget +  (totalIncome - totalDepense)
+
+        const bdgetInfos = {
+            budget :  budget,
+            depenses: totalDepense,
+            solde
+        }
+
+        return bdgetInfos
+        
+        
+     
     }
 
 

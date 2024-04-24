@@ -44,6 +44,17 @@ body{
     width: 100%;
     box-shadow: 0 0 5px #00000042; 
     flex: 1;
+    position: relative;
+}
+
+.card a {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.card a img{
+    width: 20px;
 }
 
 .card_title{
@@ -62,7 +73,10 @@ body{
 }
 
 .card_montant{
-    min-height: 50px;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 20px;
     font-weight: lighter;
     text-align: center;
@@ -207,18 +221,25 @@ tbody tr td button:hover{
     color: #a9a9a9;
 }
 
+.errorMessage{
+    margin-top: 15px ;
+    font-size: 15px;
+    color: #e64e4e;
+    display: none;
+}
+
 .formBox button{
     border: none;
     color: white;
     font-size: 20px;
     background: var(--primaryColor);
     transition: .3s;
-    
 }
 
 .formBox button:hover{
     background: #0b5a64;
 }
+
 
 
 
