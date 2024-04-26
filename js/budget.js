@@ -1,79 +1,75 @@
+import { LocalelStorage } from "./storage"
 
-class MyBudjet {
+export class MyBudjet {
     #depenses = []
     #incomes = []
-    #storage = new LocalelStorage()
+    storage = new LocalelStorage()
 
 
     addDepense(title, montant) {
         const newDepense = {
-            id : Date.now(),
+            id: Date.now(),
             title,
             montant
         }
-        this.#depenses = this.#storage.getDataFromLocaleStorage('depense')
+        
+        this.#depenses = this.storage.getDataFromLocaleStorage('depense')
         this.#depenses.push(newDepense)
-        this.#storage.setDataToLocalStorage('depense', this.#depenses)
+        this.storage.setDataToLocalStorage('depense', this.#depenses)
     }
 
     addInCommes(title, montant) {
-        const newIncome =  {
-            id : Date.now(),
+        const newIncome = {
+            id: Date.now(),
             title,
             montant
         }
 
-        this.#incomes = this.#storage.getDataFromLocaleStorage('income')
+        this.#incomes = this.storage.getDataFromLocaleStorage('income')
         this.#incomes.push(newIncome)
-        this.#storage.setDataToLocalStorage('income', this.#incomes)
+        this.storage.setDataToLocalStorage('income', this.#incomes)
     }
 
-    iniitBudget(montant){
-        this.#storage.setDataToLocalStorage('budget', montant)
+    iniitBudget(montant) {
+        this.storage.setDataToLocalStorage('budget', montant)
     }
 
-    deleteDepense(id){
-        this.#depenses = this.#storage.getDataFromLocaleStorage('depense')
+    deleteDepense(id) {
+        this.#depenses = this.storage.getDataFromLocaleStorage('depense')
         this.#depenses = [...this.#depenses].filter(item => item.id !== id)
-        this.#storage.setDataToLocalStorage('depense', this.#depenses)
-        window.location.reload()
+        this.storage.setDataToLocalStorage('depense', this.#depenses)
     }
 
-    deleteIncomne(id){
-        this.#incomes = this.#storage.getDataFromLocaleStorage('income')
+    deleteIncomne(id) {
+        this.#incomes = this.storage.getDataFromLocaleStorage('income')
         this.#incomes = [...this.#incomes].filter(item => item.id !== id)
-        this.#storage.setDataToLocalStorage('income', this.#incomes)
-        window.location.reload()
+        this.storage.setDataToLocalStorage('income', this.#incomes)
+    }
+ 
+    getTotalMoney(array = []) {
+        return array.reduce((acc, item) => {
+            if (item.hasOwnProperty('montant')) {
+                return acc += parseFloat(item.montant);
+            } else {
+                return acc; 
+            }
+        }, 0);
     }
 
-    getTotalBudgetInfo(){
+    getTotalBudgetInfo() {
+        const budget = parseFloat(this.storage.getDataFromLocaleStorage('budget'))
+        this.#depenses = this.storage.getDataFromLocaleStorage('depense')
+        this.#incomes = this.storage.getDataFromLocaleStorage('income')
  
-        const budget = parseFloat(this.#storage.getDataFromLocaleStorage('budget'))
+        const totalDepense = this.getTotalMoney(this.#depenses)
+        const totalIncome = this.getTotalMoney(this.#incomes)
+        const solde = budget + (totalIncome - totalDepense)
 
-        this.#depenses = this.#storage.getDataFromLocaleStorage('depense')
-        this.#incomes = this.#storage.getDataFromLocaleStorage('income')
-
-        const totalDepense = this.#depenses.reduce((acc, item) => {
-           return acc += parseFloat(item.montant)
-        },0)
-
-        const totalIncome =  this.#incomes.reduce((acc, item) => {
-            return acc += parseFloat(item.montant)
-         },0)
-
-
-         const solde = budget +  (totalIncome - totalDepense)
-
-        const bdgetInfos = {
-            budget :  budget,
+        return {
+            budget: budget,
             depenses: totalDepense,
             solde
         }
-
-        return bdgetInfos
-        
-        
-     
     }
 
 

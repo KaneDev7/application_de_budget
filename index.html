@@ -1,115 +1,112 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/styles.css">
-    <script src="/js/storage.js" defer></script>
-    <script src="/js/budget.js" defer></script>
-    <script src="/js/dom.js" defer></script>
-    <script src="/js/app.js" defer></script>
-    <title>Application de budgé</title>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application de budgé</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <header>
-        <a href="/"> <img src="/images/logo.png" alt="logo"> </a>
-    </header>
+  <header>
+    <a href="/"> <img src="/images/logo.png" alt="logo"> </a>
+  </header>
 
-    <p class="home"></p>
-    <section class="budget_cards">
-        <div class="budget_cards_container">
-            <div class="card">
-                <div class="card_title">
-                    <p>Budget</p>
-                </div>
-                <div class="card_montant">
-                    <p data-montant="budget">140.000 F CFA</p>
-                </div>
-                <a title="Modifier le montant" href="/pages/init_budget.html">
-                    <img src="/images/icon-edit.png" alt="">
-                </a>
-            </div>
-
-            <div class="card">
-                <div class="card_title">
-                    <p>Dépense</p>
-                </div>
-                <div class="card_montant">
-                    <p data-montant="depenses">140.000 F CFA</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card_title">
-                    <p>Solde</p>
-                </div>
-                <div class="card_montant">
-                    <p data-montant="solde">140.000 F CFA</p>
-                </div>
-            </div>
+  <section class="budget_cards">
+    <div class="budget_cards_container">
+      <div class="card">
+        <div class="card_title">
+          <p>Budget</p>
         </div>
-    </section>
+        <div class="card_montant">
+          <p data-montant="budget">140.000 F CFA</p>
+        </div>
+        <a title="Modifier le montant" href="/pages/init_budget.html">
+          <img src="/images/icon-edit.png" alt="">
+        </a>
+      </div>
 
-    <section class="tableau">
-        <h1>Liste des dépenses</h1>
+      <div class="card">
+        <div class="card_title">
+          <p>Dépense</p>
+        </div>
+        <div class="card_montant">
+          <p data-montant="depenses">140.000 F CFA</p>
+        </div>
+      </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <td>TITRE</td>
-                    <td>MONTANT</td>
-                    <td>ACTIONS</td>
-                </tr>
-            </thead>
+      <div class="card">
+        <div class="card_title">
+          <p>Solde</p>
+        </div>
+        <div class="card_montant">
+          <p data-montant="solde">140.000 F CFA</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <tbody id="depense">
-                <tr id="lastTrEl">
-                    <td class="ajoutRv">
-                        <p>AJOUTER DEPENSE</p>
-                        <a title="Ajouter dépense" href="/pages/ajout_depense.html">
-                            <img src="/images/icon-add.png" alt="icon to add">
-                        </a>
-                    </td>
-                    <td></td>
-                    <td></td>
-                </tr>
+  <section class="tableau">
+    <h1>Liste des dépenses</h1>
 
-            </tbody>
-        </table>
-    </section>
+    <table>
+      <thead>
+        <tr>
+          <td>TITRE</td>
+          <td>MONTANT</td>
+          <td>ACTIONS</td>
+        </tr>
+      </thead>
+
+      <tbody id="depense">
+        <tr id="lastTrEl">
+          <td class="ajoutRv">
+            <p>AJOUTER DEPENSE</p>
+            <a title="Ajouter dépense" href="/pages/ajout_depense.html">
+              <img src="/images/icon-add.png" alt="icon to add">
+            </a>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </section>
 
 
-    <section class="tableau">
-        <h1>Liste des revenus</h1>
+  <section class="tableau">
+    <h1>Liste des revenus</h1>
 
-        <table>
-            <thead>
-                <tr>
-                    <td>TITRE</td>
-                    <td>MONTANT</td>
-                    <td>ACTIONS</td>
-                </tr>
-            </thead>
+    <table>
+      <thead>
+        <tr>
+          <td>TITRE</td>
+          <td>MONTANT</td>
+          <td>ACTIONS</td>
+        </tr>
+      </thead>
 
-            <tbody id="income">
+      <tbody id="income">
 
-                <tr id="lastTrEl">
-                    <td class="ajoutRv">
-                        <p>AJOUTER REVENU</p>
-                        <a  title="Ajouter revenu" href="/pages/ajout_revenu.html">
-                            <img src="/images/icon-add.png" alt="icon to add">
-                        </a>
-                    </td>
-                    <td></td>
-                    <td></td>
-                </tr>
+        <tr id="lastTrEl">
+          <td class="ajoutRv">
+            <p>AJOUTER REVENU</p>
+            <a title="Ajouter revenu" href="/pages/ajout_revenu.html">
+              <img src="/images/icon-add.png" alt="icon to add">
+            </a>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
 
-            </tbody>
-        </table>
-    </section>
+      </tbody>
+    </table>
+  </section>
 
+  <script type="module" src="/main.js"></script>
 </body>
 
 </html>

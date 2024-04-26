@@ -1,5 +1,5 @@
 
-class LocalelStorage {
+export class LocalelStorage {
 
     setDataToLocalStorage(name, data) {
         localStorage.setItem(name, JSON.stringify(data))

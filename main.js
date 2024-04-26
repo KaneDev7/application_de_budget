@@ -1,3 +1,7 @@
+import { MyBudjet } from "./js/budget"
+import { Dom } from "./js/dom"
+import { LocalelStorage } from "./js/storage"
+
 const form = document.querySelector('.formBox form')
 
 const DEPENSE = 'depense'
@@ -10,11 +14,12 @@ const depenseData = storage.getDataFromLocaleStorage(DEPENSE)
 const incomeData = storage.getDataFromLocaleStorage(INCOME)
 
 
+
 // insert elements
 const domElement = new Dom()
 domElement.createAndInsertDataToTable(DEPENSE, depenseData)
 domElement.createAndInsertDataToTable(INCOME, incomeData)
-domElement.insertBudgtInfos()
+domElement.insertBudgetInfos()
 
 
 form?.addEventListener('submit', (event) => {
@@ -23,16 +28,15 @@ form?.addEventListener('submit', (event) => {
     const title = formData.get('title')
     const montant = formData.get('montant')
 
-    console.log(console.log('formID', form.id))
     if (form.id !== 'budjet') {
-        if (title.trim() === '' || !montant) {
+        if (title.trim() === '') {
             new Dom().insertErrorMessage('Ce champs est obligatoire')
             return
         }
     }
 
-
     const budget = new MyBudjet()
+
     if (form.id === 'income') {
         budget.addInCommes(title, montant)
     } else if (form.id === 'depense') {
@@ -40,6 +44,7 @@ form?.addEventListener('submit', (event) => {
     } else {
         budget.iniitBudget(montant)
     }
+
     window.location.href = window.location.origin
 })
 
