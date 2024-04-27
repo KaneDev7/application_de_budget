@@ -1,3 +1,4 @@
+import { BUDGET_KEY } from "./constants"
 
 export class LocalelStorage {
 
@@ -6,8 +7,9 @@ export class LocalelStorage {
     }
 
     getDataFromLocaleStorage(name) {
-        if (name === 'budget') {
-            return JSON.parse(localStorage.getItem(name)) || ''
+        if (name === BUDGET_KEY) {
+            const resulte  = JSON.parse(localStorage.getItem(name)) || 0
+            return parseFloat(resulte)
         }
         return JSON.parse(localStorage.getItem(name)) || []
     }

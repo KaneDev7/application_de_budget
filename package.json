@@ -7,11 +7,16 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
+    "@vitest/coverage-istanbul": "^1.5.2",
     "vite": "^5.2.0",
     "vitest": "^1.5.2",
     "vitest-localstorage-mock": "^0.1.2"
+  },
+  "dependencies": {
+    "jsdom": "^24.0.0"
   }
 }

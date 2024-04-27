@@ -5,9 +5,11 @@ export class Dom {
     createAndInsertDataToTable(tbodyId, data) {
         const pathname = window.location.pathname
 
-        if (pathname === '/' || pathname.includes('/index.html')) {
-            if(data.length < 1) return 
+        if(data.length < 1) return 
+        if(!tbodyId) return
 
+        if (pathname === '/' || pathname.includes('/index.html')) {
+        
             const tbody = document.querySelector(`table #${tbodyId}`)
             const lastTrEl = tbody.querySelector('#lastTrEl')
 
@@ -31,7 +33,6 @@ export class Dom {
                 buttonTd.appendChild(button)
                 tr.appendChild(buttonTd)
                 tbody.insertBefore(tr, lastTrEl)
-
                 button.addEventListener('click', () => this.deleteItemFromBudget(item, tbodyId))
            
             }
@@ -76,6 +77,7 @@ export class Dom {
 
 
     insertErrorMessage(message) {
+        if(!message) return
         const errorMessage = document.querySelector('.errorMessage')
         errorMessage.style.display = 'block'
         errorMessage.innerText = message

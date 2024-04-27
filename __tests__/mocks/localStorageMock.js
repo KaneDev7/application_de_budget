@@ -1,22 +1,18 @@
-export const localStorageMockFn = () => {
-    let store =  {};
+export const localStorageMock = (() => {
+    let store = {};
 
     return {
-        getItem: (key) => store[key] ?? null,
-
-        setItem: (key, value) => {
-            store[key] = JSON.stringify(value);
+        getItem: function(key) {
+            return store[key] || null;
         },
-
-        removeItem: (key) => {
+        setItem: function(key, value) {
+            store[key] = value.toString();
+        },
+        removeItem: function(key) {
             delete store[key];
         },
-
-        clear: ()  => {
+        clear: function() {
             store = {};
-        },
-        
-        key: (index) => "",
-        length: Object.keys(store).length
+        }
     };
-};
+})();

@@ -42,7 +42,7 @@ body{
 .card{
   max-width: 350px;
   width: 100%;
-  box-shadow: 0 0 5px #00000042; 
+  box-shadow: 0px 10px 25px #00000038;
   flex: 1;
   position: relative;
 }
